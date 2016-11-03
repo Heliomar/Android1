@@ -58,8 +58,8 @@ public class DonoCao extends AppCompatActivity {
         txtTelefone = (TextView) findViewById(R.id.editTelefone);
         txtEmail = (TextView) findViewById(R.id.editEmail);
         txtSenha =  (TextView)findViewById(R.id.editTextsenha);
-        Button DelBtn =(Button)findViewById(R.id.butdeletando);
-        Button salvarBtn = (Button) findViewById(R.id.butok);
+        Button PesquiseCaoBtn =(Button)findViewById(R.id.butPesquiseCao);
+        Button salvarBtn = (Button) findViewById(R.id.butCadastre_se);
 
 
 
@@ -75,27 +75,21 @@ public class DonoCao extends AppCompatActivity {
 
                 SalvarContato(donoDoCao);
 
+                Toast.makeText(getApplicationContext(),"Salvo com sucesso",Toast.LENGTH_SHORT).show();
+
+                MessageAlerta("Direcionado ", " Cadastrar seu Animal de estimação");
+                Intent inten = new Intent(DonoCao.this,CaoDeRua.class);
+                startActivity(inten);
+
             }
         });
 
-      DelBtn.setOnClickListener(new View.OnClickListener() {
+      PesquiseCaoBtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-             // DonoDoCao donoDoCao = new DonoDoCao();
-              String nome = "nome";
-              String where = "nome =?"+nome;
-              //String _id = String.valueOf(donoDoCao.getNome());
-             String[] whereArgs = new String[]{nome};
-              //int count = deletar(where ,whereArgs);
-              DonoDoCao donoDoCao = new DonoDoCao();
-
-
-               db = openOrCreateDatabase("DonoCao.db",Context.MODE_PRIVATE,null);
-               db.delete("DonoCao.db", "nome = " + donoDoCao.findViewById(R.id.editNome),null );
-              Toast.makeText(getApplicationContext(),"Deleção Realizada com successo  !!:",Toast.LENGTH_SHORT).show();
-
-              db.close();
-              Toast.makeText(getApplicationContext(),"Fechando o Banco  :",Toast.LENGTH_SHORT).show();
+              Intent intent = new Intent(DonoCao.this, ListarCao.class);
+              startActivity(intent);
+              Toast.makeText(getApplicationContext(),"Pesquise os Cães no cadstro! :",Toast.LENGTH_SHORT).show();
           }
       });
     }

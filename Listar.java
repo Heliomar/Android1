@@ -43,17 +43,15 @@ public class Listar extends AppCompatActivity implements AdapterView.OnItemClick
         try{
 
             db = openOrCreateDatabase("DonoCao.db",Context.MODE_PRIVATE,null);
-            cursor = db.rawQuery("SELECT * from  DonoCao",null);
+            cursor = db.rawQuery("Select * from  DonoCao",null);
+
+            Toast.makeText(getApplicationContext(),"Sucesso na Busca de dados",Toast.LENGTH_SHORT).show();
+
 
 
         }catch (Exception e){
 
             Toast.makeText(getApplicationContext(),"Problema na busca de dados",Toast.LENGTH_SHORT).show();
-
-
-        }finally {
-            Toast.makeText(getApplicationContext(),"Finalizando com Busca de dados",Toast.LENGTH_SHORT).show();
-
 
         }
     }
@@ -96,10 +94,10 @@ public class Listar extends AppCompatActivity implements AdapterView.OnItemClick
 
             SQLiteCursor cursor = (SQLiteCursor) AdapterLista.getItem(position);
             String nome = cursor.getString(cursor.getColumnIndex("nome"));
-           String email = cursor.getString(cursor.getColumnIndex("email"));
+             String email = cursor.getString(cursor.getColumnIndex("email"));
           // startActivity(new Intent(getApplicationContext(),Inten).));
 
-            Toast.makeText(getApplicationContext(),"/n selecionou o nome  :"+nome+ "/n Selecionou o email "+email,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"  selecionou o nome  :"+nome+ "  Selecionou o email "+email,Toast.LENGTH_SHORT).show();
 
 
 
