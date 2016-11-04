@@ -46,7 +46,7 @@ public class MapearEndereco extends ListActivity implements View.OnClickListener
 
         textViewMapa = (TextView)findViewById(R.id.BairroPoW);
 
-      cursor.getColumnIndex("bairroPpousada");
+      cursor.getColumnIndex("bairroPousada");
 
         Adapter = new SimpleCursorAdapter(getApplicationContext(),R.layout.listarbairro,cursor, null, null);
         textViewMapa.getText().toString();

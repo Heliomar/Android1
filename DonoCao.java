@@ -129,6 +129,26 @@ public class DonoCao extends AppCompatActivity {
             Toast.makeText(getApplication(),"fechando o Banco",Toast.LENGTH_SHORT).show();
         }
     }
+    public void Deletar(DonoDoCao donoDoCao){
+        //SQLiteDatabase db = null;
+
+        try{
+
+            db.delete("DonoCao","_id = "+donoDoCao.getId(),null);
+
+            Toast.makeText(getApplicationContext(),"Sucessona Remoção do Cão",Toast.LENGTH_SHORT).show();
+
+
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"Infelizmente não Removeu o Cão",Toast.LENGTH_SHORT).show();
+
+
+
+
+        }
+
+
+    }
 
     public void SalvarContato(DonoDoCao donoDoCao) {
 

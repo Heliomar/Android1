@@ -137,6 +137,26 @@ public class CaoDeRua extends AppCompatActivity {
         Mensagen.setNeutralButton("OK", null);
         Mensagen.show();
     }
+    public void Deletar(Caocadastro caocadastro){
+        //SQLiteDatabase db = null;
+
+        try{
+
+            db.delete("Cachorro","_id = "+caocadastro.getId(),null);
+
+            Toast.makeText(getApplicationContext(),"Sucessona Remoção do Cão",Toast.LENGTH_SHORT).show();
+
+
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"Infelizmente não Removeu o Cão",Toast.LENGTH_SHORT).show();
+
+
+
+
+        }
+
+
+    }
 
     public  void InsercaoCao(Caocadastro cad){
 
